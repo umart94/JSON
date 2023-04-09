@@ -1,0 +1,19 @@
+Avoid new Array()
+There is no need to use the JavaScript's built-in array constructor new Array().
+
+Use [] instead.
+
+These two different statements both create a new empty array named points:
+
+var points = new Array();     // Bad
+var points = [];              // Good 
+These two different statements both create a new array containing 6 numbers:
+
+var points = new Array(40, 100, 1, 5, 25, 10); // Bad
+var points = [40, 100, 1, 5, 25, 10];          // Good
+The new keyword only complicates the code. It can also produce some unexpected results:
+
+var points = new Array(40, 100);  // Creates an array with two elements (40 and 100)
+What if I remove one of the elements?
+
+var points = new Array(40);  // Creates an array with 40 undefined elements !!!!!

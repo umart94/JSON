@@ -1,0 +1,7 @@
+in javascript everything is an object.
+there are only two things to consider here.
+
+1. object
+2. array
+
+json , nested arrays , array of objects etc. everything is an extension of these two.

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>JavaScript Arrays2</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body>
+
+<h1>JavaScript Arrays</h1>
+<p id="message"> </p>
+<p id="message2"> </p>
+<p id="message3"> </p>
+
+<p id="message4"> </p>
+<p id="message5" style="font-style: bold; color:red;"> </p>
+<p id="message6"> </p>
+
+<p id="message7"> </p>
+<p id="message8"> </p>
+<p id="message9"> </p>
+<p id="message10"> </p>
+<p id="message11"> </p>
+<script>
+var cpuObject = cpuObject || {
+	make: "Intel",
+	processornumber: "i5 9th Generation",
+	frequency: "2.90 GHz",
+	codename: "coffee lake",
+	display: function(){
+		message.style = "color:black";
+		message.innerHTML += "<h2> cpu made by  <br/>"+this.make+ "  it's processor number is   <br/>" +this.processornumber + "   it's frequency is  <br/>" +this.frequency+"  it belongs to intel series <br/>"+this.codename+"</h2>";
+			
+	}
+
+};
+
+
+var factorial = function (num){
+num = Number(num);
+if(num <  0 ){
+return null;
+}
+var f = 1;
+for(var i=2;i<=num;i++){
+	f = f * i;
+}
+return f;
+}
+
+var resultFactorial = factorial;
+
+
+var arrayofComputerthings = ["monitor","graphicscard"];
+var arrayofComputerItems = ["monitor","graphicscard"];
+arrayofComputerItems[2] = cpuObject;
+arrayofComputerItems[3] = Date();
+arrayofComputerItems[4] = resultFactorial;
+
+/*
+when you add the function inside the array, don't use brackets, use the name of 
+the variable, inside which you are returning values from the function.
+
+*/
+
+
+
+var cpuObject2 = cpuObject2 || {};
+
+for(var prop in cpuObject){
+	if(cpuObject.hasOwnProperty(prop)) 
+	{
+		cpuObject2[prop] = cpuObject[prop];
+	
+	}
+}
+
+
+
+cpuObject2.make = "AMD";
+arrayofComputerItems[5] = cpuObject2;
+
+var cpuObject3 = cpuObject3 || {};
+
+
+for(var prop in cpuObject2){
+	if(cpuObject2.hasOwnProperty(prop)) 
+	{
+		cpuObject3[prop] = cpuObject2[prop];
+	
+	}
+}
+
+cpuObject3.make = "AMD";
+cpuObject3.processornumber = "AMD Ryzen 9 5900X";
+cpuObject3.frequency = "Base Clock - 3.7GHz";
+cpuObject3.codename = "AMD RYZEN 5000 SERIES";
+
+
+/*************** ARRAY OF JAVASCRIPT OBJECTS ***************/
+/*
+https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/
+
+https://www.w3schools.com/js/js_arrays.asp
+*/
+
+message.innerHTML += "what's the typeof arrayofComputerthings? ==    "+typeof arrayofComputerthings;
+message2.innerHTML += "is arrayofComputerthings an array ?    ==      "+Array.isArray(arrayofComputerthings);
+
+function isArray(x) {
+  return x.constructor.toString().indexOf("Array") > -1;
+}
+
+message3.innerHTML += "is arrayofComputerthings an array ?   ==    "+ isArray(arrayofComputerthings);
+
+//don't add anything else with instanceof , otherwise it wont work as expected.
+message4.innerHTML  = arrayofComputerthings instanceof Array;
+
+
+var arrayofCPUObjects = [cpuObject,cpuObject2,cpuObject3];
+
+
+arrayofComputerItems[6] = arrayofCPUObjects;
+console.log(arrayofCPUObjects);
+console.log(arrayofComputerItems);
+
+//using custom display function inside each object to display object inside the array of objects.
+message5.innerHTML = arrayofCPUObjects[0].display();
+message6.innerHTML = arrayofCPUObjects[1].display();
+message7.innerHTML = arrayofCPUObjects[2].display();
+
+var enterANumber = Number(prompt("Enter a Number : "));
+
+var resultingFactorial = arrayofComputerItems[4](enterANumber);
+message8.innerHTML = resultingFactorial;
+
+/*
+when you add the function inside the array, don't use brackets, use the name of 
+the variable, inside which you are returning values from the function.
+
+we will call the function as arrayofComputerItems[4]();
+
+if we have to pass an argument, we can create prompts, and then pass that variable , and make it return values, like this : 
+
+
+var enterANumber = Number(prompt("Enter a Number : "));
+
+var resultingFactorial = arrayofComputerItems[4](enterANumber);
+message8.innerHTML = resultingFactorial;
+
+*/
+
+var currentdate = arrayofComputerItems[3];
+console.log(currentdate);
+
+</script>
+</body>
+</html>

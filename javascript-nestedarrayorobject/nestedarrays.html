@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>JavaScript Arrays2</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body>
+
+<h1>JavaScript Arrays</h1>
+
+<p id="message"> </p>
+<p id="message2"> </p>
+<p id="message3"> </p>
+
+<p id="message4"> </p>
+<p id="message5" style="font-style: bold; color:red;"> </p>
+<p id="message6"> </p>
+
+<p id="message7"> </p>
+<p id="message8"> </p>
+<p id="message9"> </p>
+<p id="message10"> </p>
+<p id="message11"> </p>
+<script>
+
+let employees = []
+employees[0] = 'umar'
+employees[1] = 'tom'
+employees[2] = 'jerry'
+
+//for (let i = 0; i < employees.length; i++) {
+//  console.log(employees[i])
+//}
+
+//employees.forEach(function(employee) {
+//  console.log(employee)
+//})
+
+//employees.forEach(employee => console.log(employee))
+
+let studentsData = [['Tom', 24], ['Jerry', 23], ['BugsBunny', 24]];
+
+let student1 = ['Tom', 20];
+let student2 = ['Jerry', 21];
+let student3 = ['Bugs', 24];
+
+// multidimensional array
+let studentsData2 = [student1, student2, student3];
+// access the first item 
+//console.log(studentsData2[0]);  
+
+// access the first item of the first inner array
+//console.log(studentsData2[0][0]); 
+
+// access the second item of the third inner array
+//console.log(studentsData2[2][1]);  
+
+let student4 = ['sylvestercat', 23];
+studentsData2.push(student4);
+studentsData2[3][2] = 'description for student4';
+//console.log(studentsData2);
+studentsData2[3].push('ms is student');
+//console.log(studentsData2);
+studentsData2.pop();
+//console.log(studentsData2);
+studentsData2[2].pop();
+//console.log(studentsData2);
+// removing 1 index array item
+studentsData2.splice(2,2);//specify range of indices from where to remove.
+//console.log(studentsData2);
+//console.log(studentsData2);
+let student5 = ['daffyduck', 24];
+
+
+
+let umar = ['umar',26];
+let tommy = ['tommy',25];
+let spike = ['spike',24];
+let jerry = ['jerry',23];
+let butch = ['butch',22];
+let studentsInformation = [umar,tommy,spike,jerry,butch];
+// iterating over the studentsData
+// looping outer array elements
+for(let i = 0; i < studentsInformation.length; i++){
+
+    // get the length of the inner array elements
+    let innerArrayLength = studentsInformation[i].length;
+    
+    // looping inner array elements
+    for(let j = 0; j < innerArrayLength; j++) {
+        console.log(studentsInformation[i][j]);
+    }
+}
+
+//since we applied the push pop functions, the inner elements would be changed, so to test this create another array with newer inner elements.
+
+
+</script>
+</body>
+</html>

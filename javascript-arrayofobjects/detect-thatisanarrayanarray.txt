@@ -1,0 +1,32 @@
+How to Recognize an Array
+A common question is: How do I know if a variable is an array?
+
+The problem is that the JavaScript operator typeof returns "object":
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+typeof fruits;    // returns object
+The typeof operator returns object because a JavaScript array is an object.
+
+Solution 1:
+To solve this problem ECMAScript 5 defines a new method Array.isArray():
+
+Array.isArray(fruits);   // returns true
+The problem with this solution is that ECMAScript 5 is not supported in older browsers.
+
+Solution 2:
+To solve this problem you can create your own isArray() function:
+
+function isArray(x) {
+  return x.constructor.toString().indexOf("Array") > -1;
+}
+The function above always returns true if the argument is an array.
+
+Or more precisely: it returns true if the object prototype contains the word "Array".
+
+Solution 3:
+The instanceof operator returns true if an object is created by a given constructor:
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+fruits instanceof Array;   // returns true
